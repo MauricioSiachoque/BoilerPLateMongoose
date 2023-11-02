@@ -1,5 +1,5 @@
 const {app,port} = require("./src/app"); 
-const {connection} = require("./src/db");                
+const {connection} = require("./src/db")             
 
 // SINCRONIZACION base de datos y servidor express //
 
