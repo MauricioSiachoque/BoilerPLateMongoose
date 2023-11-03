@@ -18,19 +18,25 @@ app.use(cors());    //-------------PARA ACEPTAR PETICIONES del front o postman -
 
 // -------------------- vinculo mis modelos para usar rutas--------------------// 
 
-const Gatito = require("./Models/Gatitos");  // conectamos el model correspondiente
-
+const Perrito = require ("./Models/Perros");
 
 // RUTAS // 
 
 app.get("/",  (req, res) => {
+  const allDogs = Perrito.find({});
+  console.log(allDogs);
   res.send("hola mundo, ruta inicial de ejemplo, bienvenido");
 });
 
-app.post("/gatito", (req, res) => {
-  const name = req.query.name;
-  const nuevoGatito = Gatito.create({ name: name });
-  res.json("Gato creado correctamente");
+app.post("/perrito", (req, res) => {
+  try {
+     const name = req.query.name;
+  const nuevoPerrito = Perrito.create({ name: name });
+  res.json("Perro creado correctamente");
+  } catch (error) {
+    console.log(error);
+  }
+ 
 });
 
 // - - - - - ---------------------------------------------------------------------//
